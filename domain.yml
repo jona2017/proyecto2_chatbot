@@ -1,0 +1,48 @@
+version: "3.1"
+intents:
+  - saludar
+  - despedir
+  - consultar_precio
+  - consultar_disponibilidad
+  - consultar_descuento
+  - ver_catalogo
+  - preguntar_envio
+  - afirmar
+  - negar
+  - agradecer
+
+entities:
+  - producto
+
+slots:
+  producto:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: producto
+
+responses:
+  utter_saludar:
+  - text: "¡Hola! 👋 Bienvenido a SupleMax. Soy tu asistente virtual. ¿En qué puedo ayudarte hoy? Puedo informarte sobre nuestros productos: proteína, creatina y multivitamínico."
+
+  utter_despedir:
+  - text: "¡Hasta luego! 👋 Gracias por visitar SupleMax. ¡Que tengas un excelente día!"
+
+  utter_agradecer:
+  - text: "¡De nada! 😊 ¿Hay algo más en lo que pueda ayudarte?"
+
+  utter_default:
+  - text: "Lo siento, no entiendo bien tu consulta. Puedo ayudarte con información sobre precios, disponibilidad, descuentos y envíos de nuestros productos: proteína, creatina y multivitamínico. ¿Qué te interesa saber?"
+
+actions:
+  - action_consultar_precio
+  - action_consultar_disponibilidad
+  - action_consultar_descuento
+  - action_mostrar_catalogo
+  - action_informacion_envio
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

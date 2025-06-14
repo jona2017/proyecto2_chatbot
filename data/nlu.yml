@@ -1,0 +1,124 @@
+# ===== ARCHIVO: nlu.yml =====
+version: "3.1"
+
+nlu:
+- intent: saludar
+  examples: |
+    - hola
+    - buenas
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - hey
+    - qué tal
+    - cómo estás
+    - hola que tal
+    - saludos
+
+- intent: despedir
+  examples: |
+    - adiós
+    - hasta luego
+    - nos vemos
+    - chao
+    - bye
+    - hasta la vista
+    - que tengas buen día
+    - gracias, eso es todo
+    - perfecto, gracias
+
+- intent: consultar_precio
+  examples: |
+    - cuánto cuesta la [proteína](producto)
+    - precio de [creatina](producto)
+    - qué valor tiene el [multivitamínico](producto)
+    - cuánto vale la [proteína whey](producto)
+    - precio [proteína](producto)
+    - cuánto cuesta [creatina](producto)
+    - valor de [multivitamínico](producto)
+    - precios de [proteína](producto)
+    - cuánto sale la [creatina](producto)
+    - qué precio tiene [multivitaminico](producto)
+
+- intent: consultar_disponibilidad
+  examples: |
+    - tienen [proteína](producto) disponible
+    - hay [creatina](producto) en stock
+    - está disponible el [multivitamínico](producto)
+    - tienen [proteína](producto)
+    - hay [creatina](producto)
+    - tienes [multivitaminico](producto)
+    - stock de [proteína](producto)
+    - disponibilidad [creatina](producto)
+    - cuántas [proteínas](producto) quedan
+
+- intent: consultar_descuento
+  examples: |
+    - hay descuento en [proteína](producto)
+    - tiene oferta la [creatina](producto)
+    - descuentos en [multivitamínico](producto)
+    - ofertas de [proteína](producto)
+    - promociones [creatina](producto)
+    - hay rebaja en [multivitaminico](producto)
+    - descuento [proteína](producto)
+    - oferta especial [creatina](producto)
+
+- intent: ver_catalogo
+  examples: |
+    - qué productos tienen
+    - muéstrame el catálogo
+    - qué venden
+    - productos disponibles
+    - lista de productos
+    - catálogo
+    - qué hay
+    - opciones
+    - productos
+    - inventario
+
+- intent: preguntar_envio
+  examples: |
+    - hacen envíos
+    - información de envío
+    - envían a Bucaramanga
+    - cómo es el envío
+    - cuánto cuesta el envío
+    - tiempo de entrega
+    - domicilio
+    - despacho
+    - envío gratis
+
+- intent: afirmar
+  examples: |
+    - sí
+    - si
+    - exacto
+    - correcto
+    - perfecto
+    - claro
+    - por supuesto
+    - está bien
+    - dale
+
+- intent: negar
+  examples: |
+    - no
+    - no gracias
+    - negativo
+    - para nada
+    - no me interesa
+    - no quiero
+    - mejor no
+
+- intent: agradecer
+  examples: |
+    - gracias
+    - muchas gracias
+    - perfecto gracias
+    - excelente gracias
+    - te agradezco
+    - muy amable
+
+entities:
+- producto
+

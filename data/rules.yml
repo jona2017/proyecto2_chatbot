@@ -1,0 +1,24 @@
+# ===== ARCHIVO: rules.yml =====
+version: "3.1"
+
+rules:
+
+- rule: Saludar siempre
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+
+- rule: Despedir siempre
+  steps:
+  - intent: despedir
+  - action: utter_despedir
+
+- rule: Agradecer siempre
+  steps:
+  - intent: agradecer
+  - action: utter_agradecer
+
+- rule: Respuesta por defecto
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default

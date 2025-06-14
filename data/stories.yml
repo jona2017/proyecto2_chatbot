@@ -1,0 +1,56 @@
+# ===== ARCHIVO: stories.yml =====
+version: "3.1"
+
+stories:
+
+- story: saludo inicial
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+
+- story: consulta precio simple
+  steps:
+  - intent: consultar_precio
+  - action: action_consultar_precio
+
+- story: consulta disponibilidad
+  steps:
+  - intent: consultar_disponibilidad
+  - action: action_consultar_disponibilidad
+
+- story: consulta descuento
+  steps:
+  - intent: consultar_descuento
+  - action: action_consultar_descuento
+
+- story: ver catalogo completo
+  steps:
+  - intent: ver_catalogo
+  - action: action_mostrar_catalogo
+
+- story: información de envío
+  steps:
+  - intent: preguntar_envio
+  - action: action_informacion_envio
+
+- story: conversación completa precio y disponibilidad
+  steps:
+  - intent: saludar
+  - action: utter_saludar
+  - intent: consultar_precio
+  - action: action_consultar_precio
+  - intent: consultar_disponibilidad
+  - action: action_consultar_disponibilidad
+  - intent: agradecer
+  - action: utter_agradecer
+
+- story: despedida
+  steps:
+  - intent: despedir
+  - action: utter_despedir
+
+- story: agradecimiento
+  steps:
+  - intent: agradecer
+  - action: utter_agradecer
+

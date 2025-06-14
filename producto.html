@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupleMax - Suplementos Deportivos</title>
+    <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+
+ <script
+      type="module"
+      src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
+    />
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            text-align: center;
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .availability {
+            color: #28a745;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .chat-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            margin-bottom: 2rem;
+        }
+
+        .chat-title {
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .chat-description {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Chatbot widget positioning */
+        rasa-chatbot-widget {
+            --primary-color: #764ba2;
+            --secondary-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SupleMax</h1>
+            <p class="subtitle">Tu tienda de confianza en suplementos deportivos</p>
+        </header>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">💪</div>
+                <h3 class="product-title">Proteína Whey</h3>
+                <p class="product-description">Proteína de suero de alta calidad para el desarrollo muscular. Sabores: vainilla, chocolate, fresa.</p>
+                <div class="price">$85.000 - $120.000</div>
+                <div class="availability">✅ Disponible en Bucaramanga</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">⚡</div>
+                <h3 class="product-title">Creatina</h3>
+                <p class="product-description">Creatina monohidrato pura para mejorar el rendimiento y la fuerza en entrenamientos intensos.</p>
+                <div class="price">$45.000 - $65.000</div>
+                <div class="availability">✅ Disponible en Bucaramanga</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">🌟</div>
+                <h3 class="product-title">Multivitamínico</h3>
+                <p class="product-description">Complejo vitamínico completo para deportistas. Apoya la recuperación y el bienestar general.</p>
+                <div class="price">$35.000 - $55.000</div>
+                <div class="availability">✅ Disponible en Bucaramanga</div>
+            </div>
+        </div>
+
+        <div class="chat-section">
+            <h2 class="chat-title">¿Necesitas ayuda?</h2>
+            <p class="chat-description">
+                Nuestro asistente virtual está aquí para ayudarte. Pregunta sobre disponibilidad, 
+                precios, descuentos especiales y envíos a Bucaramanga.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-text">Consulta disponibilidad</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-text">Pregunta por precios</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-text">Descuentos especiales</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <div class="feature-text">Envío a Bucaramanga</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 SupleMax - Suplementos Deportivos | Solo envíos a Bucaramanga</p>
+            <p>Proyecto académico - Chatbot desarrollado con Rasa Framework</p>
+        </footer>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <rasa-chatbot-widget 
+        server-url="http://localhost:5005"
+        title="SupleMax Assistant"
+        subtitle="¿En qué puedo ayudarte?"
+        primary-color="#764ba2"
+        secondary-color="#667eea"
+        height="500">
+    </rasa-chatbot-widget>
+</body>
+</html>
