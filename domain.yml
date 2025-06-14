@@ -10,9 +10,12 @@ intents:
   - afirmar
   - negar
   - agradecer
+  - consultar_precio_especifico
 
 entities:
   - producto
+  - categoria_producto
+  - producto_especifico
 
 slots:
   producto:
@@ -21,6 +24,12 @@ slots:
     mappings:
       - type: from_entity
         entity: producto
+  producto_especifico:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: producto_especifico
 
 responses:
   utter_saludar:
@@ -41,8 +50,16 @@ actions:
   - action_consultar_descuento
   - action_mostrar_catalogo
   - action_informacion_envio
+  - action_consultar_precio_especifico
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+
+
+
+  
+
+
 

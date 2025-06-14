@@ -54,3 +54,7 @@ stories:
   - intent: agradecer
   - action: utter_agradecer
 
+- story: consulta producto específico
+  steps:
+  - intent: consultar_precio_especifico
+  - action: action_consultar_precio_especifico

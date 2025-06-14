@@ -7,7 +7,8 @@ from db_productos import (
     consultar_precio_producto, 
     disponibilidad_producto, 
     tiene_descuento,
-    obtener_todos_productos
+    obtener_todos_productos,
+    buscar_producto_especifico
 )
 
 class ActionConsultarPrecio(Action):
@@ -174,3 +175,32 @@ class ActionInformacionEnvio(Action):
         
         dispatcher.utter_message(text=mensaje)
         return []
+
+class ActionConsultarPrecioEspecifico(Action):
+    def name(self) -> Text:
+        return "action_consultar_precio_especifico"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        producto_especifico = tracker.get_slot("producto_especifico")
+        
+        if not producto_especifico:
+            dispatcher.utter_message(text="¿Qué producto específico te interesa?")
+            return []
+        
+        resultado = buscar_producto_especifico(producto_especifico)
+        
+        if resultado["encontrado"]:
+            mensaje = f"🎯 **{resultado['nombre']}**\n\n"
+            if resultado["descuento"] > 0:
+                mensaje += f"💰 ~~${resultado['precio_original']:,}~~ ➜ **${resultado['precio_final']:,}** ({resultado['descuento']}% OFF)\n"
+            else:
+                mensaje += f"💰 **${resultado['precio_final']:,}**\n"
+            mensaje += f"📦 Stock: {resultado['stock']} unidades"
+            dispatcher.utter_message(text=mensaje)
+        else:
+            dispatcher.utter_message(text=f"No encontré '{producto_especifico}'")
+        
+        return [SlotSet("producto_especifico", None)]

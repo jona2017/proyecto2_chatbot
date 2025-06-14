@@ -271,3 +271,28 @@ def obtener_todos_productos():
             })
     
     return todos_productos
+
+# AGREGAR esta función al final:
+def buscar_producto_especifico(nombre_producto):
+    """Busca un producto específico por nombre"""
+    nombre_producto = nombre_producto.lower().strip()
+    
+    for categoria_key, categoria_data in PRODUCTOS_DB.items():
+        for prod in categoria_data["productos"]:
+            # Buscar por nombre
+            if nombre_producto in prod["nombre"].lower():
+                precio_final = prod["precio"]
+                if prod["descuento"] > 0:
+                    precio_final = int(prod["precio"] * (1 - prod["descuento"]/100))
+                
+                return {
+                    "encontrado": True,
+                    "nombre": prod["nombre"],
+                    "precio_original": prod["precio"],
+                    "precio_final": precio_final,
+                    "descuento": prod["descuento"],
+                    "stock": prod["stock"],
+                    "disponible": prod["stock"] > 0
+                }
+    
+    return {"encontrado": False}

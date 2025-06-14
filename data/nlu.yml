@@ -121,4 +121,18 @@ nlu:
 
 entities:
 - producto
+- categoria_producto  
+- producto_especifico
 
+
+- intent: consultar_precio_especifico
+  examples: |
+    - cuánto cuesta [MuscleTech Whey Protein 2lb](producto_especifico)
+    - precio de [ISO Whey Protein 5lb](producto_especifico)
+    - valor [Gold Standard Whey 1lb](producto_especifico)
+    - cuánto vale [Animal Pak](producto_especifico)
+    - precio del [MuscleTech](producto_especifico)
+
+
+
+ 
